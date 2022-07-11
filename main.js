@@ -95,4 +95,31 @@ if (listIngredients.includes("sugar")){
     console.log("We can make it")
 } else {
     console.log("We can't make it")
-}*/
+}
+class player{
+    constructor (name, country){
+        this.name = name
+        this.country = country
+    }
+introduce(){
+    console.log(`${this.name} is from ${this.country}`)
+}
+}
+
+const cr7 = new player("cr7", "portugal");
+cr7.introduce()
+
+class tennis extends player{
+    constructor(name, age, country){
+        super(name, country)
+        this.age = age
+    }
+    tennisPlayer(){
+        console.log(`${this.name} is ${this.age} years old and is from ${this.country}`)
+    }
+}
+
+const playTennis = new tennis("Nadal", 30, "Chile")
+
+playTennis.tennisPlayer();
+playTennis.introduce()*/
