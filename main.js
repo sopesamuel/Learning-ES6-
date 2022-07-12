@@ -96,6 +96,9 @@ if (listIngredients.includes("sugar")){
 } else {
     console.log("We can't make it")
 }
+
+//classes
+
 class player{
     constructor (name, country){
         this.name = name
@@ -122,4 +125,70 @@ class tennis extends player{
 const playTennis = new tennis("Nadal", 30, "Chile")
 
 playTennis.tennisPlayer();
-playTennis.introduce()*/
+
+//promise
+
+playTennis.introduce()
+const userData = new Promise((resolve, reject) =>{
+const error = false;
+if (error){
+    reject("500 Not Found!")
+    }else{
+        resolve({Name: "Mosope", Email: "sope@yeah.com"})
+    }
+})
+
+userData.then((success) => console.log(success)).catch((error) => console.log(error))
+
+const buyFlightTickets = () =>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(() =>{
+            const error = false;
+            if (error){
+                reject("Sorry, Declined!")
+            } else{
+                resolve("Payment Successful")
+            }
+        }, 500)
+    })
+}
+    buyFlightTickets().then((success) => console.log(success)).catch((error) => console.log(error))
+    
+    //Fetch API
+
+    fetch('https://jsonplaceholder.typicode.com/', {
+    method: "POST",
+    body: json.stringify({name: "sops", email: "sops@yeah.com"})
+})
+.then((response) => response.json())
+.then((data) => console.log(data))
+
+// Async and await
+
+const photos = []
+
+async function uploadPhoto(){
+    let photoStatus = new Promise( (resolve, reject) =>{
+        setTimeout(() =>{
+photos.push("selfie")
+resolve("Uploaded")
+
+        }, 1000)
+    })
+    let result = await photoStatus
+    console.log(result)
+    console.log(photos.length)
+}
+
+uploadPhoto()
+
+const apiUrl = "https://api.chucknorris.io/jokes/random";
+
+async function getJoke(){
+    const value = await fetch(apiUrl);
+    const data = await value.json();
+
+    console.log(data.value);
+}
+
+getJoke();*/

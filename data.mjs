@@ -1,27 +1,15 @@
-class player{
-    constructor(name, country){
-        this.name = name
-        this.country = country
-    }
-    introduce(){
-        console.log(`${this.name} was born in ${this.country}`)
-    }
+const photos = [];
+async function uploadPhoto(){
+    let uploadStatus = new Promise((resolve, reject) => {
+setTimeout(() =>{
+photos.push("profile pic");
+resolve("photo uploaded")
+}, 3000)
+    })
+    let result = await uploadStatus;
+
+    console.log(result)
+console.log(photos.length)
 }
 
-const cr7 = new player("cr7", "portugal") 
-
-cr7.introduce();
-
-class tennisPlayer extends player{
-    constructor(name,country,age){
-        super(name, country)
-        this.age = age
-    }
-    playTennis(){
-        console.log(`${this.name} is ${this.age} years old and plays for ${this.country}`)
-    }
-}
-const fed = new tennisPlayer("Roger", "Spain", 38)
-
-fed.playTennis()
-fed.introduce()
+uploadPhoto(); 
